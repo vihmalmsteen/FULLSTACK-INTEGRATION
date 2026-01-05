@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyApp: Integração Backend-Frontend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔄 Integração Backend-Frontend</h1>
+            <p class="subtitle">Exemplo prático com API REST - Página Main e Rota Produtos</p>
+        </header>
+        
+        <div class="content">
+            <div class="card" id="main-content">
+                <h2>🏠 Página Principal</h2>
+                <div id="status" class="loading">Conectando ao backend...</div>
+                
+                <div class="buttons">
+                    <button onclick="testConnection()">Testar Conexão</button>
+                    <button onclick="loadProducts()">Carregar Produtos</button>
+                    <button onclick="cleanProducts()">Limpar Lista</button>
+                </div>
+                
+                <div id="products-container">
+                    <!-- Produtos serão inseridos aqui -->
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Informações da API</h2>
+                <div id="api-info">
+                    <p><strong>Base URL:</strong> <code id="base-url">http://localhost:3000</code></p>
+                    <p><strong>Endpoints:</strong></p>
+                    <ul>
+                        <li><code>GET /</code> - Página principal da API</li>
+                        <li><code>GET /products</code> - Lista todos os produtos</li>
+                        <li><code>GET /products/:id</code> - Busca produto por ID</li>
+                        <li><code>POST /products/create/</code> - Cria um produto com nome e preço</li>
+                        <li><code>PUT /products/update/</code> - Atualiza nome ou preço de um produto</li>
+                        <li><code>DELETE /products/delete/:id</code> - Remove um produto pelo ID</li>
+                    </ul>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3>📩 Adicionar Produto</h3>
+                        <input type="text" id="produto-nome" placeholder="nome do produto" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100px;">
+                        <input type="text" id="produto-preco" placeholder="preço do produto" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100px;">
+                        <button type="button" id="insert-product-btn" onclick="createProduct()">Adicionar</button>
+                        <div id="status-insert" class="loading">Aguardando...</div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <h3>🔍 Testar Produto Específico</h3>
+                        <input type="number" id="produto-id" placeholder="ID do produto" min="1" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100px;">
+                        <button onclick="searchProductById()">Buscar Produto</button>
+                        <div id="product-detail" style="margin-top: 15px;"></div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <h3>🗑️ Deletar Produto</h3>
+                        <input type="number" id="produto-id-delete" placeholder="ID do produto" min="1" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100px;">
+                        <button onclick="deleteProductById()">Remover Produto</button>
+                        <div id="status-delete" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Como executar este projeto:</h3>
+            <ol>
+                <li><strong>Backend:</strong> Na pasta <code>backend</code>, execute <code>npm install</code> e depois <code>npm start</code></li>
+                <li><strong>Frontend:</strong> Abra o arquivo <code>index.html</code> em um navegador ou use um servidor local</li>
+                <li>Clique nos botões para testar a comunicação com a API</li>
+            </ol>
+            <p><strong>Nota:</strong> Certifique-se de que o backend está rodando na porta 3000 antes de testar o frontend.</p>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

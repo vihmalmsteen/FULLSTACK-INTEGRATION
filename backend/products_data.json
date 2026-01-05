@@ -1,0 +1,27 @@
+[
+    {
+        "id": 4,
+        "name": "SSD",
+        "price": 120.99
+    },
+    {
+        "id": 5,
+        "name": "Lamborgini",
+        "price": 700000.99
+    },
+    {
+        "id": 6,
+        "name": "motorcycle",
+        "price": 2300.99
+    },
+    {
+        "id": 7,
+        "name": "gummy bear",
+        "price": 3.8
+    },
+    {
+        "id": 8,
+        "name": "screwdriver",
+        "price": 5.6
+    }
+]
